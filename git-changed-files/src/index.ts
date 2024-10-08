@@ -1,10 +1,10 @@
-import { NetlifyIntegration } from "@netlify/sdk";
+import { NetlifyExtension } from "@netlify/sdk";
 import { getProperties } from "./getProperties";
 
-const integration = new NetlifyIntegration();
+const extension = new NetlifyExtension();
 const MUT_VERSION = "0.11.4";
 
-integration.addBuildEventHandler(
+extension.addBuildEventHandler(
 	"onSuccess",
 	async ({ utils: { status, git, run }, netlifyConfig }) => {
 		console.log("Checking if any files changed on git -----");
@@ -122,4 +122,4 @@ export function createMarkdown(
 	return markdownList;
 }
 
-export { integration };
+export { extension };
